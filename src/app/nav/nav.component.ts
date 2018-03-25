@@ -29,6 +29,7 @@ export class NavComponent implements OnInit {
       }, () => {
         this.router.navigate(["/members"]);
       });
+      this.model = {};
   }
   logout() {
     this.authService.userToken = null;

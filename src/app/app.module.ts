@@ -1,10 +1,13 @@
+import { AuthModule } from './auth/auth.module';
+import { UserService } from './_services/user.service';
 import { AuthGuard } from './_guards/auth.guard';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BsDropdownModule } from "ngx-bootstrap";
+import { BsDropdownModule, TabsModule } from "ngx-bootstrap";
 import { RouterModule } from '@angular/router';
+import { NgxGalleryModule } from "ngx-gallery";
 import { appRoutes } from './routes';
 
 
@@ -14,9 +17,14 @@ import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
-import { MemberListComponent } from './member-list/member-list.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { AuthComponent } from './auth/auth.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
+import { MemberListResolver } from './_resolvers/member-list.resolver';
 
 
 @NgModule({
@@ -27,20 +35,29 @@ import { MessagesComponent } from './messages/messages.component';
     RegisterComponent,
     MemberListComponent,
     ListsComponent,
-    MessagesComponent
+    MessagesComponent,
+    MemberCardComponent,
+    AuthComponent,
+    MemberDetailComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    TabsModule.forRoot(),
+    RouterModule.forRoot(appRoutes),
+    AuthModule,
+    NgxGalleryModule,
   ],
   providers: [
     AuthService,
-     AlertifyService,
-     AuthGuard
-    ],
+    AlertifyService,
+    UserService,
+    AuthGuard,
+    MemberDetailResolver,
+    MemberListResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

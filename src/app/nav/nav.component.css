@@ -1,3 +1,7 @@
 .dropdown-menu, .dropdown-toggle {
     cursor: pointer;
 }
+
+.navbar {
+     margin-bottom: 0 !important;
+}

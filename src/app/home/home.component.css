@@ -1,0 +1,46 @@
+.image{
+    height:60em;
+    background-size:cover;
+    width:auto;
+    background-image:url('https://images.pexels.com/photos/238622/pexels-photo-238622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-position:50% 50%;
+   }
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 400px; whatever width you want */
+}
+
+h1 {
+    color: white;
+    font-size: 4em;
+    font-weight: 500;
+}
+
+p {
+    color: white;
+}
+
+.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
