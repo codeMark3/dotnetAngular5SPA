@@ -1,7 +1,6 @@
 .container {
     padding-top: 20px;
 }
-
 .profile-image {
     margin: 25px;
     width: 85%;
@@ -30,8 +29,9 @@
 }
 
 h1 {
-    padding-left: 41px;
+    padding-left: 31px;
 }
+
 img.profile-image.thumbnail {
     margin-top: 0;
     padding-top: 0;

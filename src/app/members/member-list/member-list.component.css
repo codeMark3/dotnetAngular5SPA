@@ -3,3 +3,6 @@ equal {
     flex-flow: row wrap;
     align-content: flex-end;
 }
+.container {
+    padding-top: 20px;
+}
