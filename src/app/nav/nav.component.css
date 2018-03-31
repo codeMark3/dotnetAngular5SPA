@@ -6,6 +6,8 @@
      margin-bottom: 0 !important;
 }
 
-i {
-    margin-right: 5px;
+img {
+    max-height: 45px;
+    /* border: 1px solid white; */
+    display: inline;
 }

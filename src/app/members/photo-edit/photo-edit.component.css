@@ -1,0 +1,42 @@
+img.thumbnail {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 3px;
+}
+
+.nv-file-over { 
+    border: dotted 3px #43ac6a;
+}
+
+input[type=file] {
+    color: transparent;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.my-drop-zone {
+    text-align: center;
+}
+
+.text-center {
+    padding-bottom: 15px;
+}
