@@ -4,8 +4,8 @@ import { AuthGuard } from './_guards/auth.guard';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BsDropdownModule, TabsModule } from "ngx-bootstrap";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, CollapseModule } from "ngx-bootstrap";
 import { RouterModule } from '@angular/router';
 import { NgxGalleryModule } from "ngx-gallery";
 import { appRoutes } from './routes';
@@ -56,7 +56,10 @@ import { FileUploadModule } from 'ng2-file-upload';
     RouterModule.forRoot(appRoutes),
     AuthModule,
     NgxGalleryModule,
-    FileUploadModule
+    FileUploadModule,
+    ReactiveFormsModule,
+    CollapseModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     AuthService,
