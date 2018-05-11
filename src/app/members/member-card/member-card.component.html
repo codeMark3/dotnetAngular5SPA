@@ -9,7 +9,10 @@
       </ul>
     </div>
     <div class="text-center">
-      <h5><i class="fa fa-user"></i>{{ user.knownAs }}, {{ user.age }}</h5>
+      <h5><i class="fa" 
+        [ngClass]="{'fa-mars': user.gender == 'male', 'fa-venus': user.gender =='female'}"
+        [ngStyle]="user.gender == 'male' && {color: 'blue'} || {color: 'magenta'}"></i>
+        {{ user.knownAs }}, {{ user.age }}</h5>
     </div>
     <div class="text-center">
       <h5><small>{{ user.city }}</small></h5>
