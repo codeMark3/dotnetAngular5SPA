@@ -45,3 +45,5 @@
   padding: 15px 0;
 }
 
+button:focus {outline:none !important;}
+

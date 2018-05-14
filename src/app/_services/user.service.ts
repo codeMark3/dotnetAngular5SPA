@@ -7,7 +7,7 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
 import { AuthHttp } from 'angular2-jwt';
-import { PaginationResult } from '../_models/Pagination';
+import { PaginatedResult } from '../_models/Pagination';
 
 @Injectable()
 export class UserService {
@@ -15,12 +15,20 @@ export class UserService {
 
   constructor(private authHttp: AuthHttp) {}
 
-  getUsers(page?: number, itemsPerPage?: number, userParams?: any) {
-    const paginationResult: PaginationResult<User[]> = new PaginationResult<User[]>();
+  getUsers(page?: number, itemsPerPage?: number, userParams?: any, likesParam?: string) {
+    const paginationResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
     let queryString = '?';
 
     if (page != null && itemsPerPage != null) {
       queryString += "pageNumber=" + page + "&pageSize=" + itemsPerPage + '&';
+    }
+
+    if(likesParam === 'Likers') {
+      queryString += 'Likers=true&';
+    }
+
+    if(likesParam === 'Likees') {
+      queryString += 'Likees=true&';
     }
 
     if(userParams != null) {
@@ -59,6 +67,11 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  seedLike(id: number, recipientId: number) {
+    return this.authHttp.post(this.baseUrl + 'users/' + id + '/like/' + recipientId, {})
+      .catch(this.handleError);
+  }
+
   getUser(id): Observable<User> {
     return this.authHttp
       .get(this.baseUrl + "users/" + id)
@@ -67,6 +80,9 @@ export class UserService {
   }
 
   private handleError(error: any) {
+    if(error.status === 400) {
+      return Observable.throw(error._body);
+    }
     const applicationError = error.headers.get("Application-Error");
     if (applicationError) {
       return Observable.throw(applicationError);
